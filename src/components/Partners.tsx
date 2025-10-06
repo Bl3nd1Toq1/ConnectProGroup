@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Building2, Shield, Briefcase, Globe, CheckCircle, Clock, Users } from 'lucide-react';
 
 export const Partners: React.FC = () => {
@@ -44,7 +44,7 @@ export const Partners: React.FC = () => {
   const partners = [
     {
       name: "Vega Solutions GmbH",
-      logo: "/partners/vega.PNG",
+      logo: "/vega.png",
       description: t('vegaSolutionsDesc'),
       icon: Building2,
       stats: '500+ Projects',
@@ -151,7 +151,7 @@ export const Partners: React.FC = () => {
           viewport={{ once: true }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mb-20"
         >
-          {partners.map((partner, index) => (
+          {partners.map((partner) => (
             <motion.a
               key={partner.name}
               href={partner.website}
@@ -232,7 +232,7 @@ export const Partners: React.FC = () => {
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8 mt-20"
         >
-          {['wideExperience', 'manyPartners', 'support24_7'].map((key, index) => (
+          {['wideExperience', 'manyPartners', 'support24_7'].map((key) => (
             <motion.div
               key={key}
               variants={itemVariants}
