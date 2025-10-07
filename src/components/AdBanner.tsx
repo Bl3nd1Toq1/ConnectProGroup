@@ -21,10 +21,15 @@ export const AdBanner: React.FC = memo(() => {
                 aria-label="Visit IMTicker"
               >
                 <img
-                  src="https://imticker.ch/wp-content/uploads/2024/04/cropped-imticker_logo_queer.png"
+                  src="/imticker.png"
                   alt="IMTicker"
                   className="object-contain max-h-full max-w-full"
                   loading="lazy"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.src = 'https://imticker.ch/wp-content/uploads/2024/04/cropped-imticker_logo_queer.png';
+                  }}
                 />
               </a>
               <button
