@@ -11,7 +11,7 @@ export const AdBanner: React.FC = memo(() => {
         <div className="sticky top-20 z-40 bg-gray-900/90 border-b border-white/10 text-gray-100">
           <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center">
             <div
-              className="relative flex items-center justify-center bg-gray-800/80 border border-gray-700 rounded-md overflow-hidden w-full max-w-[728px] h-[50px] sm:h-[60px] md:h-[90px]"
+              className="relative flex items-center justify-center bg-white border border-gray-200 rounded-md overflow-hidden w-full max-w-[728px] h-[50px] sm:h-[60px] md:h-[90px]"
             >
               <a
                 href="https://imticker.ch/"
