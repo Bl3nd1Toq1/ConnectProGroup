@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Mail, Phone, MapPin, Instagram, Twitter, Facebook, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -11,6 +11,28 @@ export const Contact: React.FC = () => {
     email: '',
     message: ''
   });
+
+  const backgroundBlobs = useMemo(() => Array.from({ length: 8 }).map((_, i) => (
+    <motion.div
+      key={i}
+      className="absolute bg-green-500/5 rounded-full"
+      style={{
+        width: Math.random() * 300 + 50,
+        height: Math.random() * 300 + 50,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+      }}
+      animate={{
+        y: [0, Math.random() * 100 - 50],
+        opacity: [0.1, 0.3, 0.1],
+      }}
+      transition={{
+        duration: Math.random() * 5 + 5,
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
+    />
+  )), []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,27 +53,7 @@ export const Contact: React.FC = () => {
       {!prefersReducedMotion && (
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute w-full h-full">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute bg-green-500/5 rounded-full"
-                style={{
-                  width: Math.random() * 300 + 50,
-                  height: Math.random() * 300 + 50,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [0, Math.random() * 100 - 50],
-                  opacity: [0.1, 0.3, 0.1],
-                }}
-                transition={{
-                  duration: Math.random() * 5 + 5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
-            ))}
+            {backgroundBlobs}
           </div>
         </div>
       )}
@@ -86,8 +88,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">{t('phone')}</h3>
-                    <p className="text-gray-300">+355 69 XXX XXXX</p>
-                    <p className="text-gray-300">+355 69 XXX XXXX</p>
+                    <p className="text-gray-300">+383 49 165 156</p>
                   </div>
                 </div>
 
@@ -97,8 +98,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">{t('email')}</h3>
-                    <p className="text-gray-300">info@connectprogroup.com</p>
-                    <p className="text-gray-300">support@connectprogroup.com</p>
+                    <p className="text-gray-300">arber.gashi@connectpro-group.com</p>
                   </div>
                 </div>
 
@@ -109,8 +109,8 @@ export const Contact: React.FC = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">{t('address')}</h3>
                     <p className="text-gray-300">
-                      Rruga "Myslym Shyri", Nr. 50<br />
-                      Tiranë, Shqipëri
+                      Rr. Gjin Gazuli, pn<br />
+                      30000 Pejë
                     </p>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export const Contact: React.FC = () => {
               {/* Map Placeholder */}
               <div className="mt-8 rounded-xl overflow-hidden h-[200px] bg-gradient-to-br from-gray-700/50 to-gray-800/50 border border-gray-600">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.4394037744856!2d19.8168863!3d41.3289589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135031653bb8ad39%3A0xd27b0d5cf36dbcc1!2sRruga%20Myslym%20Shyri%2C%20Tirana%2C%20Albania!5e0!3m2!1sen!2s!4v1647355846284!5m2!1sen!2s"
+                  src="https://www.google.com/maps?q=Rr.+Gjin+Gazuli,+30000+Pej%C3%AB&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

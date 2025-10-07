@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Briefcase, ChevronRight, Users, Clock, MapPin, GraduationCap, Upload } from 'lucide-react';
 import { JobPosition } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,7 +9,7 @@ export const Careers: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
   
-  const positions: JobPosition[] = [
+  const positions: JobPosition[] = useMemo(() => ([
     {
       id: '1',
       title: t('customerServicePosition'),
@@ -32,7 +32,7 @@ export const Careers: React.FC = () => {
         t('technicalSupportExp')
       ]
     }
-  ];
+  ]), [t]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -153,7 +153,7 @@ export const Careers: React.FC = () => {
                             </span>
                             <span className="flex items-center text-sm text-gray-400">
                               <MapPin className="w-4 h-4 mr-1" />
-                              Tiranë
+                              Kosovë
                             </span>
                           </div>
                         </div>
